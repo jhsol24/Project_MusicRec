@@ -1,0 +1,109 @@
+
+{% load static %}
+
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>Dung KKung</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Music">
+    <meta name="keywords" content="">
+    <meta name="author" content="kamleshyadav">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/swiper/css/swiper.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/nice_select/nice-select.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/player/volume.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'js/plugins/scroll/jquery.mCustomScrollbar.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/YouTubePopUp.css' %}">
+
+
+
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+</head>
+            {% block content %}
+            {% endblock %}
+
+    <!--Main js file Style-->
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/swiper/js/swiper.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/jplayer.playlist.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/jquery.jplayer.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/audio-player.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/volume.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/nice_select/jquery.nice-select.min.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/plugins/scroll/jquery.mCustomScrollbar.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/youtube.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/YouTubePopUp.jquery.js' %}"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+        Kakao.init('26afcbd30471817cf5b5f6ac21384b06');
+    </script>
+	<script type="text/javascript">
+		jQuery(function(){
+			jQuery("a.bla-1").YouTubePopUp();
+			jQuery("a.bla-2").YouTubePopUp( { autoplay: 0 } ); // Disable autoplay
+		});
+	</script>
+    <script type='text/javascript'>
+
+      //<![CDATA[
+        function sendLink(a,b,c,d) {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: a+'-'+b,
+        description: c,
+        imageUrl:
+          d,
+        link: {
+          mobileWebUrl: 'http://127.0.0.1:8000/filtering',
+          webUrl: 'http://127.0.0.1:8000/filtering',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '나만의 플레이리스트 만들기',
+          link: {
+            mobileWebUrl: 'http://127.0.0.1:8000/filtering',
+            webUrl: 'http://127.0.0.1:8000/filtering',
+          },
+        },
+      ],
+    })
+  }
+
+  function sendTextLink(all_data) {
+    Kakao.Link.sendDefault({
+      objectType: 'text',
+      text:
+        all_data,
+      link: {
+        mobileWebUrl:
+          'https://developers.kakao.com/docs/js/kakaotalklink#텍스트-템플릿-보내기',
+        webUrl:
+          'https://developers.kakao.com/docs/js/kakaotalklink#텍스트-템플릿-보내기',
+      },
+    })
+  }
+</script>
+
+</body>
+
+</html>

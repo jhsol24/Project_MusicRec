@@ -1,0 +1,886 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+	<!----Loader Start---->
+	<div class="ms_loader">
+		<div class="wrap">
+		  <img src="{% static 'images/loader.gif' %}" alt="">
+		</div>
+	</div>
+
+
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <div class="fa fa-angle-right" aria-hidden="true"></div>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="new_index"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="new_index"><img src="{% static 'images/open_logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul>
+                        <li><a href="new_index">
+						<span class="nav_icon">
+							<span class="icon icon_discover"></span>
+						</span>
+						<span class="nav_text">Home</span>
+						</a>
+                        </li>
+
+                        <li><a href="genre" class="active">
+						<span class="nav_icon">
+							<span class="icon icon_albums"></span>
+						</span>
+						<span class="nav_text">Genre</span>
+						</a>
+                        </li>
+
+                        <li><a href="tag">
+						<span class="nav_icon">
+							<span class="icon icon_music"></span>
+						</span>
+						<span class="nav_text">Tag</span>
+						</a>
+                        </li>
+
+                        <li><a href="playlist">
+						<span class="nav_icon">
+							<span class="icon icon_genres"></span>
+						</span>
+						<span class="nav_text">Playlist</span>
+						</a>
+                        </li>
+
+                    <li><a href="filtering">
+						<span class="nav_icon">
+							<span class="icon icon_fe_playlist"></span>
+						</span>
+						<span class="nav_text">Recommend</span>
+						</a>
+                        </li></ul>
+
+                    <ul class="nav_playlist">
+
+
+                    <li><a href="mypage">
+						<span class="nav_icon">
+							<span class="icon icon_c_playlist"></span>
+						</span>
+						<span class="nav_text">REC Playlist</span>
+						</a>
+                        </li></ul>
+                <ul class="nav_downloads">
+                        <li><a href="team">
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Creator
+						</span>
+						</a>
+                        </li>
+                    </ul>
+                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 613px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top80">
+        <div class="ms_content_wrapper padder_top80">
+            <!---Header--->
+            <div class="ms_header">
+
+                <div class="ms_top_right">
+
+                    <div class="ms_top_btn">
+                        <a href=filtering class="ms_btn register_btn"><span>Recommend</span></a>
+                        <!--<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+                    </div>
+                </div>
+            </div>
+
+            <!----Top Genres Section Start---->
+            <div class="ms_genres_wrapper ms_genres_single padder_top90">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ms_heading">
+                            <h1 style="font-size:40px;">Top Genres</h1>
+<!--                            <span class="veiw_all" style="font-size:20px;"><a href="#detail1"><br>view more</a></span>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/genre/1.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail1">Balad</a></span>
+                                    <span class="ovrly_text2"><a href="#detail1">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail1">Balad</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/2.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail2">Dancing</a></span>
+											<span class="ovrly_text2"><a href="#detail2">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail2">Dancing</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/3.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail3">Hip-Hop</a></span>
+											<span class="ovrly_text2"><a href="#detail3">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail3">Hip-Hop</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/4.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail4">R&B</a></span>
+											<span class="ovrly_text2"><a href="#detail4">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail4">R&B</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/5.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail5">Indie</a></span>
+											<span class="ovrly_text2"><a href="#detail5">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail5">Indie</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/genre/6.jpg' %}">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail6">Rock</a></span>
+									<span class="ovrly_text2"><a href="#detail6">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail6">Rock</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/7.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail7">Pop</a></span>
+											<span class="ovrly_text2"><a href="#detail7">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail7">Pop</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/8.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail8">Ost</a></span>
+											<span class="ovrly_text2"><a href="#detail8">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail8">Ost</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/9.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail9">Idol</a></span>
+											<span class="ovrly_text2"><a href="#detail9">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail9">Idol</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5" id="detail1">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/genre/10.jpg' %}">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail10">Edm</a></span>
+											<span class="ovrly_text2"><a href="#detail10">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="#detail10">Edm</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/genre/11.jpg' %}">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail12">Classic</a></span>
+									<span class="ovrly_text2"><a href="#detail12">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail12">Classic</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/genre/12.jpg' %}">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail13">Jazz</a></span>
+                                    <span class="ovrly_text2"><a href="#detail13">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail13">Jazz</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20" style="padding-top:120px;">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Balad</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+
+                            {% for obj in balad %}
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail2" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Dancing</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+
+                            {% for obj in dancing %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail3" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Hip-Hop</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+
+                            {% for obj in hiphop %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail4" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">R&B</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+
+                            {% for obj in rnb %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail5" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Indie</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in indie %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail6" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Rock</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in rock %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail7" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Pop</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in pop %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail8" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Ost</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in ost %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail9" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Idol</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in idol %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail10" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">EDM</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in edm %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail11" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Musical</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in musical %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail12" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Classic</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in classic %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a id="detail13" style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+            <!---Top Genres Section Detail Start--->
+            <div class="ms_featured_slider padder_top20">
+                <div class="ms_heading">
+                    <h1 style="font-size: 25px;">Jazz</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px;">Slide To View More ></a></span>
+                </div>
+                <div class="ms_relative_inner">
+                    <div class="ms_feature_slider swiper-container swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-967px, 0px, 0px); transition-duration: 0ms;">
+                            {% for obj in jazz %}
+
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 211.75px; margin-right: 30px;">
+                                <div class="ms_rcnt_box">
+                                    <div class="ms_rcnt_box_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_main_overlay">
+                                            <div class="ms_box_overlay"></div>
+                                            <div class="ms_play_icon">
+                                                <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ms_rcnt_box_text">
+                                        <h3><a style="color:white">{{ obj.artist_name_basket }} - {{obj.song_name}} </a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next1 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev1 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                </div>
+            </div>
+
+        <!----Main div close---->
+        </div>
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper">
+            <div class="ms_footer_logo">
+                <a><img src="{% static 'images/open_logo.png' %}" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!----Register Modal Start---->
+    <!-- Modal -->
+    <div class="ms_register_popup">
+
+        <!----Login Popup Start---->
+        <div id="myModal1" class="modal centered-modal" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog login_dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+                        <div class="ms_register_img">
+                            <img src="{% static 'images/register_img.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="ms_register_form">
+                            <h2 style="font-size:36px; text-align:center;">login / Sign in</h2>
+
+                            <div class="form-group">
+                                <input type="button" value="Login with Kakao" style="font-weight:bold;" class="form-control">
+
+                            </div>
+                            <a class="ms_btn" data-dismiss="modal" style="color:#fff; font-weight:bold;">close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<!--scroll function-->
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+{% endblock %}

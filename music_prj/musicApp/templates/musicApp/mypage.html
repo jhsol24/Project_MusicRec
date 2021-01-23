@@ -1,0 +1,219 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+	<!----Loader Start---->
+	<div class="ms_loader">
+		<div class="wrap">
+		  <img src="{% static 'images/loader.gif' %}" alt="">
+		</div>
+	</div>
+
+
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="new_index"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="new_index"><img src="{% static 'images/open_logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul>
+                        <li><a href="new_index">
+						<span class="nav_icon">
+							<span class="icon icon_discover"></span>
+						</span>
+						<span class="nav_text">Home</span>
+						</a>
+                        </li>
+
+                        <li><a href="genre">
+						<span class="nav_icon">
+							<span class="icon icon_albums"></span>
+						</span>
+						<span class="nav_text">Genre</span>
+						</a>
+                        </li>
+
+                        <li><a href="tag">
+						<span class="nav_icon">
+							<span class="icon icon_music"></span>
+						</span>
+						<span class="nav_text">Tag</span>
+						</a>
+                        </li>
+
+                        <li><a href="playlist">
+						<span class="nav_icon">
+							<span class="icon icon_genres"></span>
+						</span>
+						<span class="nav_text">Playlist</span>
+						</a>
+                        </li>
+
+                    <li><a href="filtering">
+						<span class="nav_icon">
+							<span class="icon icon_fe_playlist"></span>
+						</span>
+						<span class="nav_text">Recommend</span>
+						</a>
+                        </li></ul>
+
+                    <ul class="nav_playlist">
+
+
+                    <li><a href="mypage" class="active">
+						<span class="nav_icon">
+							<span class="icon icon_c_playlist"></span>
+						</span>
+						<span class="nav_text">REC Playlist</span>
+						</a>
+                        </li></ul>
+
+                <ul class="nav_downloads">
+                        <li><a href="team">
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Creator
+						</span>
+						</a>
+                        </li>
+                    </ul>
+                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 613px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top80">
+        <div class="ms_content_wrapper padder_top80">
+            <!---Header--->
+            <div class="ms_header">
+
+                <div class="ms_top_right">
+
+                    <div class="ms_top_btn">
+<!--                        <a href="javascript:;" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>Filter  <img src="{% static 'images/svg/search.svg' %}"  alt=""></span></a>-->
+                        <a href=filtering class="ms_btn register_btn"><span>Recommend</span></a>
+                        <!--<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+                    </div>
+                </div>
+            </div>
+            <!----My Page Section Start---->
+            <div class="ms_top_artist">
+                            <div class="ms_free_download">
+                <div class="ms_heading">
+                    <h1 style="font-size:40px">Recommend playlist</h1>
+                </div>
+                <div class="album_inner_list">
+                   <div class="album_list_wrapper">
+                      <ul class="album_list_name">
+                         <li>#</li>
+                         <li>Song Title</li>
+                                <li></li>
+                         <li>Singer</li>
+                         <li class="text-center">Release Date</li>
+                         <li class="text-center">Play</li>
+                         <li class="text-center">share</li>
+
+                      </ul>
+                       {% for obj in select_song %}
+                      {% if obj.song_name != None %}
+                      <ul>
+                         <li><a style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">{{ forloop.counter }}</a><span class="play_hover"></span></li>
+                         <li><a style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">{{ obj.song_name }}</a></li>
+                         <li></li>
+                         <li><a style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">{{ obj.artist_name_basket }}</a></li>
+                         <li class="text-center"><a style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">{{ obj.issue_date }}</a></li>
+                         <li class="text-center"><a class="bla-2" href="{{ obj.url_link }}" style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;" ><img src="{% static 'images/svg/play.svg' %}" width="20" /></a></li>
+                         <li class="text-center"><a class="kakao-link-btn" href="javascript:sendLink( '{{ obj.song_name }}' , '{{ obj.artist_name_basket }}','{{ obj.issue_date }}','{{ obj.album_image }}'  )" style=" width:200px; padding:0 0px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;"><img src="{% static 'images/svg/share.svg' %}" width="20" alt=""></a></li>
+                      </ul>
+                        {% else %}
+                        {% endif %}
+                       {% endfor %}
+                   </div>
+                </div>
+            </div>
+            <div class="ms_top_right">
+                    <div class="ms_top_btn">
+<!--                        <a href="javascript:;" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>Filter  <img src="{% static 'images/svg/search.svg' %}"  alt=""></span></a>-->
+                        <a id="kakao-link-btn" class="ms_btn register_btn" href="javascript:sendTextLink( '{{all_data}}' )"><span>All Share</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!----Footer Start---->
+        <br><br><br>
+        <div class="ms_footer_wrapper">
+            <div class="ms_footer_logo">
+                <a><img src="{% static 'images/open_logo.png' %}" alt=""></a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!----Register Modal Start---->
+    <!-- Modal -->
+    <div class="ms_register_popup">
+
+        <!----Login Popup Start---->
+        <div id="myModal1" class="modal centered-modal" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog login_dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+                        <div class="ms_register_img">
+                            <img src="/static/images/register_img.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="ms_register_form">
+                            <h2 style="font-size:36px; text-align:center;">login / Sign in</h2>
+
+                            <div class="form-group">
+                                <input type="button" value="Login with Kakao" style="font-weight:bold;" class="form-control">
+
+                            </div>
+                            <a class="ms_btn" data-dismiss="modal" style="color:#fff; font-weight:bold;">close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<!--scroll function-->
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+{% endblock %}

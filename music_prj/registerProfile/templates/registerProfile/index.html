@@ -1,0 +1,59 @@
+{% load static %}
+
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>Dung KKung</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Music">
+    <meta name="keywords" content="">
+    <meta name="author" content="kamleshyadav">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/swiper/css/swiper.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/nice_select/nice-select.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'js/plugins/player/volume.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'js/plugins/scroll/jquery.mCustomScrollbar.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/YouTubePopUp.css' %}">
+
+
+
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+</head>
+            {% block content %}
+            {% endblock %}
+
+    <!--Main js file Style-->
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/swiper/js/swiper.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/jplayer.playlist.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/jquery.jplayer.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/audio-player.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/player/volume.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/plugins/nice_select/jquery.nice-select.min.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/plugins/scroll/jquery.mCustomScrollbar.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/youtube.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/YouTubePopUp.jquery.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Hello Register</p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK" />
+</form>
+</body>
+</html>

@@ -1,0 +1,466 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+label {
+  border: ;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label:before {
+  background-color: black;
+  color: black;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 300px;
+  width: 200px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: white;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  /* box-shadow: 0 0 5px #333; */
+  z-index: -1;
+}
+<style type="text/css">
+#loader-bg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  opacity:0.4;
+  z-index: 1;
+}
+#loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+
+.checkbox-container {
+
+position: relative;
+
+}
+
+input[type="checkbox"][id^="tag_list"] {
+  display: none;
+}
+
+// 기본 체크박스 없애기
+
+.checkbox-container input[type="checkbox"] {
+
+position: absolute;
+
+width: 1px;
+
+height: 1px;
+
+padding: 0;
+
+margin: -1px;
+
+overflow: hidden;
+
+clip:rect(0,0,0,0);
+
+border: 0
+
+}
+
+
+
+// 웹의 경우 커서에 pointer 설정
+
+.checkbox-container input[type="checkbox"] + label {
+
+display: inline-block;
+
+position: relative;
+
+cusor: pointer;
+
+-webkit-user-select: none;
+
+-moz-user-select: none;
+
+-ms-user-select: none;
+
+user-select: none;
+
+}
+
+
+
+// 새로운 디자인의 체크박스 만들기
+
+.checkbox-container input[type="checkbox"] + label:before {
+
+content: ' ';
+
+display: inline-block;
+
+width: 18px;
+
+height: 18px;
+
+line-height: 18px;
+
+margin: -2px 8px 0 0;
+
+text-align: center;
+
+vertical-align: middle;
+
+background: #fafafa;
+
+border: 1px solid #cacece;
+
+border-radius: 3px;
+
+box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+
+}
+
+
+
+.checkbox-container input[type="checkbox"] + label:active:before,
+
+.checkbox-container input[type="checkbox"]:checked + label:active:before {
+
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+
+}
+
+
+
+.checkbox-container input[type="checkbox"]:checked + label:before {
+
+
+content: '\2713';
+
+color: #f8f9fa;
+background: #ff4865;
+border-color: #ff4865;
+text-shadow: 1px 1px white;
+
+
+
+box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+
+}
+
+</style>
+
+<body>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $(window).on('submit',function () { // 처리 중 이미지를 표시
+    var h = $(window).height();
+    $('#loader-bg ,#loader').height(h).css('display','block');
+    $('#wrap').css('display', 'none');
+  });
+</script>
+<div id="loader-bg">
+     <div id="loader">
+          <img src="{% static 'images/loader.gif' %}" width="250" height="250" alt="Now Loading..." />
+          <p style="font-size:20px;">Now Recommending....</p>
+     </div>
+</div>
+    <form action="mypage" method="post">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+	<!----Loader Start---->
+	<div class="ms_loader">
+		<div class="wrap">
+		  <img src="{% static 'images/loader.gif' %}" alt="">
+		</div>
+	</div>
+
+
+
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="new_index"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="new_index"><img src="{% static 'images/open_logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul>
+                        <li><a href="new_index">
+						<span class="nav_icon">
+							<span class="icon icon_discover"></span>
+						</span>
+						<span class="nav_text">Home</span>
+						</a>
+                        </li>
+
+                        <li><a href="genre">
+						<span class="nav_icon">
+							<span class="icon icon_albums"></span>
+						</span>
+						<span class="nav_text">Genre</span>
+						</a>
+                        </li>
+
+                        <li><a href="tag">
+						<span class="nav_icon">
+							<span class="icon icon_music"></span>
+						</span>
+						<span class="nav_text">Tag</span>
+						</a>
+                        </li>
+
+                        <li><a href="playlist">
+						<span class="nav_icon">
+							<span class="icon icon_genres"></span>
+						</span>
+						<span class="nav_text">Playlist</span>
+						</a>
+                        </li>
+
+                    <li><a href="filtering" class="active">
+						<span class="nav_icon">
+							<span class="icon icon_fe_playlist"></span>
+						</span>
+						<span class="nav_text">Recommend</span>
+						</a>
+                        </li></ul>
+
+                    <ul class="nav_playlist">
+                    <li><a href="mypage">
+						<span class="nav_icon">
+							<span class="icon icon_c_playlist"></span>
+						</span>
+						<span class="nav_text">REC Playlist</span>
+						</a>
+                        </li></ul>
+
+
+                <ul class="nav_downloads">
+                        <li><a href="team" >
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Creator
+						</span>
+						</a>
+                        </li>
+                    </ul>
+                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 613px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top80">
+        <div class="ms_content_wrapper padder_top80">
+
+            <!---Header--->
+        <div class="ms_footer_wrapper" style="display:none;">
+            <div class="ms_footer_logo">
+                <a><img src="{% static 'images/open_logo.png' %}" alt=""></a>
+            </div>
+        </div>
+
+            <div class="ms_header">
+
+                <div class="ms_top_right">
+
+                    <div class="ms_top_btn">
+<!--                        <a href="javascript:;" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>Filter  <img src="{% static 'images/svg/search.svg' %}"  alt=""></span></a>-->
+                        <button onclick="topFunction()" type="submit" class="ms_btn register_btn" style="width: 216px;margin-bottom: 0px;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px;padding-right: 0px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;border-right-width: 0px;"><span>make playlist</span></button>
+
+                        <!--<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(function (){
+                    $(".ms_btn register_btn").click(function (){
+                    $(".ms_footer_wrapper").toggle();
+                  });
+                });
+            </script>
+
+            <div class="ms_top_artist" style="margin-bottom: 40px">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:40px">Top 30 tag</h1>
+                            </div>
+                        </div>
+
+                        <ul>
+                        {% csrf_token %}
+                        {% for obj in tag_list %}
+
+                          <li>
+                              <div class="checkbox-container">
+                              <input type="checkbox" id="tag_list{{ forloop.counter }}" name="tag_id[]" value="{{ obj }}"/><label for="tag_list{{ forloop.counter }}" style="color:white; font-size:20px;">#{{obj}}</label>
+                               <div class="txt_line" style=" width:150px; height:20px; padding:0 5px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">
+                               </div>
+                              </div>
+                          </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:40px">Song</h1>
+                            </div>
+                        </div>
+
+                        <ul>
+                        {% csrf_token %}
+                        {% for obj in song_meta %}
+                          <li>
+                            <input type="checkbox" id="myCheckbox{{ forloop.counter }}" name="song_id[]" value="{{ obj.song_id }}"/>
+                              <label for="myCheckbox{{ forloop.counter }}"><img src="{{ obj.album_image }}" /></label>
+                               <div class="txt_line" style=" width:240px; height:72px; padding:0 5px;\overflow:hidden;\text-overflow:ellipsis;\white-space:nowrap;">
+                                   {{ obj.artist_name_basket }} - {{ obj.song_name }}
+                               </div>
+                          </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!----My Page Section Start---->
+
+        </div>
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper">
+            <div class="ms_footer_logo">
+                <a><img src="{% static 'images/open_logo.png' %}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!----Register Modal Start---->
+    <!-- Modal -->
+    <div class="ms_register_popup">
+
+        <!----Login Popup Start---->
+        <div id="myModal1" class="modal centered-modal" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog login_dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+                        <div class="ms_register_img">
+                            <img src="/static/images/register_img.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="ms_register_form">
+                            <h2 style="font-size:36px; text-align:center;">login / Sign in</h2>
+
+                            <div class="form-group">
+                                <input type="button" value="Login with Kakao" style="font-weight:bold;" class="form-control">
+
+                            </div>
+                            <a class="ms_btn" data-dismiss="modal" style="color:#fff; font-weight:bold;">close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+<!--scroll function-->
+
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+
+
+{% endblock %}

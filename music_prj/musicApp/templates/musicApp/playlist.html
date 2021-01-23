@@ -1,0 +1,1378 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+	<!----Loader Start---->
+	<div class="ms_loader">
+		<div class="wrap">
+		  <img src="{% static 'images/loader.gif' %}" alt="">
+		</div>
+	</div>
+
+
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="new_index"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="new_index"><img src="{% static 'images/open_logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul>
+                        <li><a href="new_index">
+						<span class="nav_icon">
+							<span class="icon icon_discover"></span>
+						</span>
+						<span class="nav_text">Home</span>
+						</a>
+                        </li>
+
+                        <li><a href="genre">
+						<span class="nav_icon">
+							<span class="icon icon_albums"></span>
+						</span>
+						<span class="nav_text">Genre</span>
+						</a>
+                        </li>
+
+                        <li><a href="tag">
+						<span class="nav_icon">
+							<span class="icon icon_music"></span>
+						</span>
+						<span class="nav_text">Tag</span>
+						</a>
+                        </li>
+
+                        <li><a href="playlist" class="active">
+						<span class="nav_icon">
+							<span class="icon icon_genres"></span>
+						</span>
+						<span class="nav_text">Playlist</span>
+						</a>
+                        </li>
+
+                    <li><a href="filtering">
+						<span class="nav_icon">
+							<span class="icon icon_fe_playlist"></span>
+						</span>
+						<span class="nav_text">Recommend</span>
+						</a>
+                        </li></ul>
+
+                    <ul class="nav_playlist">
+
+
+                    <li><a href="mypage">
+						<span class="nav_icon">
+							<span class="icon icon_c_playlist"></span>
+						</span>
+						<span class="nav_text">REC Playlist</span>
+						</a>
+                        </li></ul>
+
+                <ul class="nav_downloads">
+                        <li><a href="team">
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Creator
+						</span>
+						</a>
+                        </li>
+                    </ul>
+                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 613px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top80">
+        <div class="ms_content_wrapper padder_top80">
+            <!---Header--->
+            <div class="ms_header">
+
+                <div class="ms_top_right">
+
+                    <div class="ms_top_btn">
+                        <a href=filtering class="ms_btn register_btn"><span>Recommend</span></a>
+                        <!--<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+                    </div>
+                </div>
+            </div>
+            <!---Top Playlists Section Start--->
+            <div class="ms_top_artist" style="margin-bottom: 40px">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:40px">Playlists</h1>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/1.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail1"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail1">봄 느낌 가득한 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/2.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail2"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail2">무더위를 날려줄 여름 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/3.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail3"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail3">가을이 오면 생각나는 감성 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/4.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail4"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail4">추운 겨울날 듣게되는 감성 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/5.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail5"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail5">아침을 깨우고 신나는 경쾌한 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/6.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail6"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail6">나른한 오후를 달달하게 채워줄 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/7.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail7"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail7">늦은 저녁 편안하게 듣는 감성팝 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/8.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail8"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail8">새벽 감성 폭발시킬 힙발라드 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/9.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail9"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail9">사랑하는 사람과 같이 듣고 싶은 달달한 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/10.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail10"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail10">이별 그 후 가슴을 울리는 감성 노래</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/11.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail11"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail11">노래방 가면 꼭 부르는 노래 [여자편]</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ms_rcnt_box marger_bottom30">
+                                <div class="ms_rcnt_box_img">
+                                    <img src="{% static 'images/playlist/12.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ms_play_icon">
+                                            <a href="#detail12"><img src="{% static 'images/svg/play.svg' %}"  alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms_rcnt_box_text">
+                                    <h3><a href="#detail12">노래방 가면 꼭 부르는 노래 [남자편]</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br id="detail1"><br><br><br><br>
+
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">봄 느낌 가득한 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply1_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply1_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply1_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail2"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">무더위를 날려줄 여름 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply2_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply2_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply2_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail3"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">가을이 오면 생각나는 감성 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply3_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply3_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply3_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail4"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">추운 겨울날 듣게되는 감성 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply4_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply4_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply4_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail5"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">아침을 깨우고 신나는 경쾌한 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply5_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply5_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply5_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail6"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">나른한 오후를 달달하게 채워줄 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply6_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply6_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply6_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail7"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">늦은 저녁 편안하게 듣는 감성팝 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply7_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply7_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply7_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail8"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">새벽 감성 폭발시킬 힙발라드 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply8_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply8_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply8_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail9"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">사랑하는 사람과 같이 듣고 싶은 달달한 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply9_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply9_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply9_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail10"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">이별 그 후 가슴을 울리는 감성 노래</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply10_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply10_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply10_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail11"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">노래방 가면 꼭 부르는 노래 [여자편]</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply11_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply11_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply11_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br id="detail12"><br><br><br><br>
+            <!----Top Playlists Section Detail Start---->
+            <div class="ms_weekly_wrapper ms_free_music" style="padding-top:0px">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:20px">노래방 가면 꼭 부르는 노래 [남자편]</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply12_1 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply12_2 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            {% for obj in ply12_3 %}
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <div class="w_top_song">
+                                        <div class="w_tp_song_img">
+                                            <img src="{{ obj.album_image }}" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>{{ obj.song_name }}</a></h3>
+                                            <p>{{ obj.artist_name_basket }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="{{ obj.url_link }}"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+
+
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper">
+            <div class="ms_footer_logo">
+                <a href="index"><img src="{% static 'images/open_logo.png' %}" alt=""></a>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+    <!----Register Modal Start---->
+    <!-- Modal -->
+    <div class="ms_register_popup">
+
+        <!----Login Popup Start---->
+        <div id="myModal1" class="modal centered-modal" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog login_dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+                        <div class="ms_register_img">
+                            <img src="/static/images/register_img.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="ms_register_form">
+                            <h2 style="font-size:36px; text-align:center;">login / Sign in</h2>
+
+                            <div class="form-group">
+                                <input type="button" value="Login with Kakao" style="font-weight:bold;" class="form-control">
+
+                            </div>
+                            <a class="ms_btn" data-dismiss="modal" style="color:#fff; font-weight:bold;">close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<!--scroll function-->
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+{% endblock %}

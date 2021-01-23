@@ -1,0 +1,77 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1>draw</h1>
+<!--num = request.POST.getlist('song_id[]')-->
+<!--{% for obj in select_song %}-->
+<!--{{ obj.artist_name_basket }} - {{ obj.song_name }}-->
+<!--{% endfor %}-->
+
+
+
+            <!--{% if user.is_active %}-->
+                   <!--<div>카카오 아이디 :aaa </span></div>-->
+                    <!--<div>닉네임 : bbb</span></div>-->
+                    <!--<br/>-->
+                    <!--&lt;!&ndash;<a id="kakao-login-btn"></a>&ndash;&gt;-->
+                <!--</div>-->
+            <!--{% else %}-->
+            <!--<div class="loginBtnBx">-->
+               <!--<div>카카오 아이디 : <span id="kakaoIdentity"></span></div>-->
+                <!--<div>닉네임 : <span id="kakaoNickName"></span></div>-->
+                <!--<br/>-->
+                <!--<a id="kakao-login-btn"></a>-->
+			<!--</div>-->
+            <!--{% endif %}-->
+
+
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // @details 카카오톡 Developer API 사이트에서 발급받은 JavaScript Key
+        // @breif 카카오 로그인 버튼을 생성합니다.
+        Kakao.Auth.createLoginButton({
+              container : "#kakao-login-btn"
+            , success : function( authObj ) {
+                // console.log( authObj );
+                Kakao.API.request({
+                      url : "/v2/user/me"
+                    , success : function( res ) {
+                        // console.log( res );
+                        // @breif 아이디
+                        document.getElementById( "kakaoIdentity" ).innerHTML = res.id;
+                        // @breif 닉네임
+                        document.getElementById( "kakaoNickName" ).innerHTML = res.properties.nickname;
+                    }, fail : function( error ) {
+                        alert( JSON.stringify( error ) );
+                    }
+                });
+            }
+            , fail : function( error ) {
+                alert( JSON.stringify( error ));
+            }
+        });
+    });
+
+</script>
+<!--scroll function-->
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+{% endblock %}

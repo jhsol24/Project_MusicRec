@@ -1,0 +1,930 @@
+{% extends 'musicApp/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+	<!----Loader Start---->
+	<div class="ms_loader">
+		<div class="wrap">
+		  <img src="{% static 'images/loader.gif' %}"  alt="">
+		</div>
+	</div>
+
+
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="new_index"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="new_index"><img src="{% static 'images/open_logo.png' %}" alt="" class="img-fluid"></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul>
+                        <li><a href="new_index" class="active">
+						<span class="nav_icon">
+							<span class="icon icon_discover"></span>
+						</span>
+						<span class="nav_text">Home</span>
+						</a>
+                        </li>
+
+                        <li><a href="genre">
+						<span class="nav_icon">
+							<span class="icon icon_albums"></span>
+						</span>
+						<span class="nav_text">Genre</span>
+						</a>
+                        </li>
+
+                        <li><a href="tag">
+						<span class="nav_icon">
+							<span class="icon icon_music"></span>
+						</span>
+						<span class="nav_text">Tag</span>
+						</a>
+                        </li>
+
+                        <li><a href="playlist">
+						<span class="nav_icon">
+							<span class="icon icon_genres"></span>
+						</span>
+						<span class="nav_text">Playlist</span>
+						</a>
+                        </li>
+
+                    <li><a href="filtering">
+						<span class="nav_icon">
+							<span class="icon icon_fe_playlist"></span>
+						</span>
+						<span class="nav_text">Recommend</span>
+						</a>
+                        </li></ul>
+
+                    <ul class="nav_playlist">
+
+
+                    <li><a href="mypage">
+						<span class="nav_icon">
+							<span class="icon icon_c_playlist"></span>
+						</span>
+						<span class="nav_text">REC Playlist</span>
+						</a>
+                        </li></ul>
+
+                <ul class="nav_downloads">
+                        <li><a href="team">
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Creator
+						</span>
+						</a>
+                        </li>
+                    </ul>
+                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px; display: block; max-height: 613px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top80">
+            <div class="ms_content_wrapper padder_top80">
+            <!---Header--->
+            <div class="ms_header">
+                <div class="ms_top_right">
+                    <div class="ms_top_btn">
+                        <a href="filtering" class="ms_btn reg_btn"><span>Recommend</span></a>
+                        <!--<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+                    </div>
+                </div>
+            </div>
+            <!---Banner--->
+            <div class="ms-banner" style="margin-top:15px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="ms_banner_img">
+                                <img src="/static/images/register_img6.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="ms_banner_text">
+                                <h1>Dung KKung</h1>
+                                <h1 class="ms_color">Recommend Playlists ! :D</h1>
+                                <p>We analyze with melon data provided by Kakao Arena<br>Choose your taste and get recommended playlists</p>
+                                <div class="ms_banner_btn">
+                                    <a href="filtering" class="ms_btn" style="font-size:20px">Recommend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Top 15 Music Chart Section Start-->
+            <div class="ms_weekly_wrapper ms_free_music" style="margin-top:50px;">
+                <div class="ms_weekly_inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1 style="font-size:40px">Liked Song Top 15</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										01
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/21/601/10521601_20201120125511_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>VVS (Feat. JUSTHIS)</a></h3>
+                                            <p>미란이, 먼치맨, Khundi Panda, 머쉬베놈</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=HYfkUCKiVGw"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										02
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/21/601/10521601_20201120125511_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>내일이 오면</a></h3>
+                                            <p>릴보이 (lIlBOI)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=Ww147bBSIfo"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										03
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/104/79/150/10479150_20200918102847_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Dynamite</a></h3>
+                                            <p>방탄소년단</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=gdZLi9oWNZg"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										04
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/18/234/10518234_20201113150500_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>밤하늘의 별을(2020)</a></h3>
+                                            <p>경서</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=NuTNPV72rFo"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										05
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/08/266/10508266_20201023171236_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>잠이 오질 않네요</a></h3>
+                                            <p>장범준</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=JR-wv5fOJEY"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 padding_right40">
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										06
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/34/079/10534079_20201215114038_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>What Do I Call You</a></h3>
+                                            <p>태연 (TAEYEON)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=5LbFdY6vGsQ"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										07
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/05/118/10505118_20201019112710_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>힘든 건 사랑이 아니다</a></h3>
+                                            <p>임창정</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=Y7FMbWfAFTc"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										08
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/000/00/829/829_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>All I Want For Christmas Is You</a></h3>
+                                            <p>Mariah Carey</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=aAkMkVFwAoo"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										09
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/104/63/600/10463600_20200720152905_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>취기를 빌려 (취향저격 그녀 X 산들)</a></h3>
+                                            <p>산들</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=d2ytH5mymWY"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										10
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/104/98/032/10498032_20200929122954_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Lovesick Girls</a></h3>
+                                            <p>BLACKPINK</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=dyRsYk0LyA8"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										11
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/21/601/10521601_20201120125511_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Achoo (Feat. pH-1, HAON)</a></h3>
+                                            <p>미란이 (Mirani)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=SFRFbiFXeeo"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										12
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/21/521/10521521_20201120112220_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Life Goes On</a></h3>
+                                            <p>방탄소년단</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=-5q5mZbe3V8"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										13
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/105/21/601/10521601_20201120125511_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>악역 (Feat. 이하이 & 사이먼 도미닉)</a></h3>
+                                            <p>스윙스</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=y7GVCqziwrg"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										14
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm/album/images/022/92/117/2292117_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Santa Tell Me</a></h3>
+                                            <p>Ariana Grande</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=nlR0MkrRklg"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="ms_divider"></div>
+                            <div class="ms_weekly_box">
+                                <div class="weekly_left">
+                                    <span class="w_top_no">
+										15
+									</span>
+                                    <div class="w_top_song" style="padding-left:20px">
+                                        <div class="w_tp_song_img">
+                                            <img src="https://cdnimg.melon.co.kr/cm2/album/images/104/98/123/10498123_20201002094556_500.jpg/melon/resize/120/quality/80/optimize" alt="">
+                                            <div class="ms_song_overlay">
+                                            </div>
+                                        </div>
+                                        <div class="w_tp_song_name">
+                                            <h3><a>Savage Love (Laxed - Siren Beat)</a></h3>
+                                            <p>Jawsh 685, Jason Derulo, 방탄소년단</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weekly_right">
+                                    <a class="bla-2" href="https://www.youtube.com/watch?v=QVE0vWffWoc"><img src="/static/images/svg/play.svg" width="20" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!----Top 3 Genres Section Start---->
+            <div class="ms_genres_wrapper" style="padding-top:110px; margin-top:50px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ms_heading">
+                            <h1 style="font-size:40px">Top Genres</h1>
+                            <span class="veiw_all" style="font-size:20px"><a href="genre"><br>view more</a></span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box" id="detail1">
+                            <img src="{% static 'images/home/1.jpg' %}" alt="" class="img-fluid">
+                                <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="#detail1"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail1" style="font-size:10px">Pop</a></span>
+                                    <span class="ovrly_text2"><a href="#detail1">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail1">Pop</a></span>
+                                    <span class="ovrly_text2"><a href="#detail1">view song</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/home/2.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="#detail2"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail2">Hip-Hop</a></span>
+                                    <span class="ovrly_text2"><a href="#detail2">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail2">Hip-Hop</a></span>
+                                    <span class="ovrly_text2"><a href="#detail2">view song</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/home/3.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="#detail2"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail2">Indie</a></span>
+                                    <span class="ovrly_text2"><a href="#detail2">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="#detail2">Indie</a></span>
+                                    <span class="ovrly_text2"><a href="#detail2">view song</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----Top 3 Genres Section Detail Start---->
+            <div class="ms_releases_wrapper" id="detail2" style="height:15%; padding-top:30px;">
+                <div class="ms_heading">
+                    <h1 style="font-size:20px">Pop</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px">Slide To View More &gt;</a></span>
+                </div>
+                <div class="ms_release_slider swiper-container swiper-container-horizontal">
+                    <div class="ms_divider"></div>
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                        {% for obj in pop %}
+                        <div class="swiper-slide" style="width: 347.667px; margin-right: 10px;" data-swiper-slide-index="0">
+                            <div class="ms_release_box">
+                                <div class="w_top_song">
+                                    <span class="slider_dot"></span>
+                                    <div class="w_tp_song_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_song_overlay">
+                                        </div>
+                                        <div class="ms_play_icon">
+                                            <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="w_tp_song_name">
+                                        <h3><a>{{ obj.song_name }}</a></h3>
+                                        <p>{{ obj.artist_name_basket }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next2 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                <div class="swiper-button-prev2 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+            </div>
+            <!----Top 3 Genres Section Detail Start---->
+            <div class="ms_releases_wrapper" style="height:15%; padding-top:30px;">
+                <div class="ms_heading">
+                    <h1 style="font-size:20px">Hip-Hop</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px">Slide To View More &gt;</a></span>
+                </div>
+                <div class="ms_release_slider swiper-container swiper-container-horizontal">
+                    <div class="ms_divider"></div>
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                        {% for obj in hiphop %}
+                        <div class="swiper-slide" style="width: 347.667px; margin-right: 10px;" data-swiper-slide-index="0">
+                            <div class="ms_release_box">
+                                <div class="w_top_song">
+                                    <span class="slider_dot"></span>
+                                    <div class="w_tp_song_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_song_overlay">
+                                        </div>
+                                        <div class="ms_play_icon">
+                                            <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="w_tp_song_name">
+                                        <h3><a>{{ obj.song_name }}</a></h3>
+                                        <p>{{ obj.artist_name_basket }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next2 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                <div class="swiper-button-prev2 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+            </div>
+            <!----Top 3 Genres Section Detail Start---->
+            <div class="ms_releases_wrapper" style="height:15%; padding-top:30px;">
+                <div class="ms_heading">
+                    <h1 style="font-size:20px">Indie</h1>
+                    <span class="veiw_all"><a style="color: #fff; font-size:15px">Slide To View More &gt;</a></span>
+                </div>
+                <div class="ms_release_slider swiper-container swiper-container-horizontal">
+                    <div class="ms_divider"></div>
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                        {% for obj in indie %}
+                        <div class="swiper-slide" style="width: 347.667px; margin-right: 10px;" data-swiper-slide-index="0">
+                            <div class="ms_release_box">
+                                <div class="w_top_song">
+                                    <span class="slider_dot"></span>
+                                    <div class="w_tp_song_img">
+                                        <img src="{{ obj.album_image }}" alt="">
+                                        <div class="ms_song_overlay">
+                                        </div>
+                                        <div class="ms_play_icon">
+                                            <a class="bla-2" href="{{ obj.url_link }}"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="w_tp_song_name">
+                                        <h3><a>{{ obj.song_name }}</a></h3>
+                                        <p>{{ obj.artist_name_basket }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next2 slider_nav_next" tabindex="0" role="button" aria-label="Next slide"></div>
+                <div class="swiper-button-prev2 slider_nav_prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+            </div>
+
+            <!----Top 6 Tags Section Start---->
+            <div class="ms_genres_wrapper" style="padding-top:110px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ms_heading">
+                            <h1 style="font-size:40px;">Top Tags</h1>
+                            <span class="veiw_all" style="font-size:20px;"><a href="tag"><br>view more</a></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/tag/1.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="tag">기분전환</a></span>
+                                    <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="tag">기분전환</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/tag/2.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">휴식</a></span>
+                                 <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">휴식</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/tag/3.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">잔잔한</a></span>
+                                 <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">잔잔한</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/tag/4.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">팝</a></span>
+                                 <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">팝</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ms_genres_box">
+                                    <img src="{% static 'images/tag/5.jpg' %}" alt="" class="img-fluid">
+                                    <div class="ms_main_overlay">
+                                        <div class="ms_box_overlay"></div>
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">밤</a></span>
+                                 <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ms_box_overlay_on">
+                                        <div class="ovrly_text_div">
+                                            <span class="ovrly_text1"><a href="tag">밤</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/tag/6.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="tag">감성</a></span>
+                           <span class="ovrly_text2"><a href="tag">view song</a></span>
+                                </div>
+                            </div>
+                            <div class="ms_box_overlay_on">
+                                <div class="ovrly_text_div">
+                                    <span class="ovrly_text1"><a href="tag">감성</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---Top Playlists Section Start--->
+            <div class="ms_genres_wrapper" style="padding-top:110px; margin-top:50px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ms_heading">
+                            <h1 style="font-size:40px">Melon Playlists</h1>
+                            <span class="veiw_all" style="font-size:20px"><a href="playlist"><br>view more</a></span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/5.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">아침을 깨우고 신나는 경쾌한 노래</a></h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/6.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">나른한 오후를 달달하게 채워줄 노래</a></h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/7.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">늦은 저녁 편안하게 듣는 감성팝 노래</a></h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/8.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">새벽 감성 폭발시킬 힙발라드 노래</a></h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/11.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">노래방 가면 꼭 부르는 노래 [여자편]</a></h3>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="ms_genres_box">
+                            <img src="{% static 'images/playlist/12.jpg' %}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+                                <div class="ms_play_icon">
+                                    <a href="playlist"><img src="{% static 'images/svg/play.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><a style="color:white; font-size:18px;">노래방 가면 꼭 부르는 노래 [남자편]</a></h3>
+                    </div>
+                </div>
+            </div>
+            <!----Main div close---->
+        </div>
+        </div>
+
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper" style="padding-top:220px;">
+            <div class="ms_footer_logo">
+                <a><img src="/static/images/open_logo.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!----Register Modal Start---->
+    <!-- Modal -->
+    <div class="ms_register_popup">
+
+        <!----Login Popup Start---->
+        <div id="myModal1" class="modal centered-modal" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog login_dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+                        <div class="ms_register_img">
+                            <img src="/static/images/register_img.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="ms_register_form">
+                            <h2 style="font-size:36px; text-align:center;">login / Sign in</h2>
+
+                            <div class="form-group">
+                                <a id="custom-login-btn" href="/account/login/kakao/">
+                                  <img
+                                    src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+                                    width="222"
+                                  />
+                                </a>
+                            </div>
+                            <a class="ms_btn" data-dismiss="modal" style="color:#fff; font-weight:bold;">close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--scroll function-->
+    <script>
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;}
+    </script>
+{% endblock %}
